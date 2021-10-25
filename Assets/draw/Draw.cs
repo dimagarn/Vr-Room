@@ -30,6 +30,7 @@ public class Draw : MonoBehaviour
             GameObject newLine = PhotonNetwork.Instantiate(brush.name, new Vector3(), Quaternion.identity);
             drawLine = newLine.GetComponent<LineRenderer>();
             view = GetComponentInParent<PhotonView>();
+            // Тоже выделить PunRPC чтобы избавиться от проблем с прерываниями линии?
         }
     }
 
