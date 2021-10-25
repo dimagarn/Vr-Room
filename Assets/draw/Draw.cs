@@ -8,14 +8,18 @@ public class Draw : MonoBehaviour
     float timer;
     public float timerDelay;
 
+
+    public GameObject Controller;
     public GameObject brush;
+    SerializationController controller;
     LineRenderer drawLine;
+
     void Start()
     {
+        controller = Controller.GetComponent<SerializationController>();
         linePoints = new List<Vector3>();
         timer = timerDelay;
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,7 +50,9 @@ public class Draw : MonoBehaviour
     {
         if (other.tag == "wall")
         {
+            
             linePoints.Clear();
+            controller.AddLine(drawLine);
         }
     }
 }
