@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class Draw : MonoBehaviour
     public GameObject Controller;
     public GameObject brush;
     SerializationController controller;
+    PhotonView view;
     LineRenderer drawLine;
 
     void Start()
@@ -25,8 +27,9 @@ public class Draw : MonoBehaviour
     {
         if (other.tag == "wall")
         {
-            GameObject newLine = Instantiate(brush);
+            GameObject newLine = PhotonNetwork.Instantiate(brush.name, new Vector3(), Quaternion.identity);
             drawLine = newLine.GetComponent<LineRenderer>();
+            view = newLine.GetComponent<PhotonView>();
         }
     }
 
@@ -34,15 +37,7 @@ public class Draw : MonoBehaviour
     {
         if (other.tag == "wall")
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                linePoints.Add(transform.position);
-                drawLine.positionCount = linePoints.Count;
-                drawLine.SetPositions(linePoints.ToArray());
-
-                timer = timerDelay;
-            }
+            view.RPC("ModifyLine", RpcTarget.All);
         }
     }
 
@@ -50,9 +45,23 @@ public class Draw : MonoBehaviour
     {
         if (other.tag == "wall")
         {
-            
+
             linePoints.Clear();
             controller.AddLine(drawLine);
+        }
+    }
+
+    [PunRPC]
+    private void ModifyLine()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            linePoints.Add(transform.position);
+            drawLine.positionCount = linePoints.Count;
+            drawLine.SetPositions(linePoints.ToArray());
+
+            timer = timerDelay;
         }
     }
 }
