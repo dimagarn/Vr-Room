@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,13 @@ public class MenuManager : MonoBehaviourPunCallbacks
 {
     public InputField createInput;
     public InputField joinInput;
+
+    public void Start()
+    {
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = 4;
+        PhotonNetwork.CreateRoom("123", roomOptions);
+    }
 
     public void CreateRoom()
     {
