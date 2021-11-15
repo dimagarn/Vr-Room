@@ -19,9 +19,8 @@ public class SpawnPlayers : MonoBehaviour
         if (firstStart)
         {
             PhotonNetwork.Instantiate(pen.name, new Vector3(-0.279f,1.085521f, 1.905365f), Quaternion.identity);
+            controller.Deserialize(Brush);
             firstStart = false;
         }
-        //Нужно доработать сериализацию на лету для подключающихся пользователей
-        controller.Deserialize(Brush);
     }
 }
