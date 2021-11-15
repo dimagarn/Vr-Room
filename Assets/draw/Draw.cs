@@ -9,17 +9,16 @@ public class Draw : MonoBehaviour
     float timer;
     public float timerDelay;
 
-
     public GameObject Controller;
     public GameObject brush;
-    //SerializationController controller;
+    SerializationController controller;
     PhotonView view;
     LineRenderer drawLine;
     bool isDrawing = false;
 
     void Start()
     {
-        //controller = Controller.GetComponent<SerializationController>();
+        controller = Controller.GetComponent<SerializationController>();
         linePoints = new List<Vector3>();
         timer = timerDelay;
     }
@@ -85,6 +84,7 @@ public class Draw : MonoBehaviour
     [PunRPC]
     public void EndLine()
     {
+        controller.AddLine(drawLine);
         linePoints.Clear();
         drawLine = null;
         isDrawing = false;
