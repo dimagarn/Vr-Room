@@ -15,6 +15,7 @@ public class Draw : MonoBehaviour
     //SerializationController controller;
     PhotonView view;
     LineRenderer drawLine;
+    bool isDrawing = false;
 
     void Start()
     {
@@ -25,17 +26,20 @@ public class Draw : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isDrawing)
+            return;
         if (other.tag == "wall")
         {
-            GameObject newLine = PhotonNetwork.Instantiate(brush.name, new Vector3(), Quaternion.identity);
-            drawLine = newLine.GetComponent<LineRenderer>();
             view = GetComponentInParent<PhotonView>();
-            // Тоже выделить PunRPC чтобы избавиться от проблем с прерываниями линии?
+            view.RPC("StartLine", RpcTarget.AllBuffered);
+            isDrawing = false;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
+        if (isDrawing)
+            return;
         if (other.tag == "wall")
         {
             timer -= Time.deltaTime;
@@ -44,7 +48,7 @@ public class Draw : MonoBehaviour
                 //linePoints.Add(transform.position);
                 //drawLine.positionCount = linePoints.Count;
                 //drawLine.SetPositions(linePoints.ToArray());
-                view.RPC("ModifyLine", RpcTarget.All, transform.position);
+                view.RPC("ModifyLine", RpcTarget.AllBuffered, transform.position);
 
                 timer = timerDelay;
             }
@@ -53,11 +57,21 @@ public class Draw : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (isDrawing)
+            return;
         if (other.tag == "wall")
         {
-            linePoints.Clear();
+            view.RPC("EndLine", RpcTarget.AllBuffered);
             //controller.AddLine(drawLine);
         }
+    }
+
+    [PunRPC]
+    public void StartLine()
+    {
+        isDrawing = true;
+        GameObject newLine = PhotonNetwork.Instantiate(brush.name, new Vector3(), Quaternion.identity);
+        drawLine = newLine.GetComponent<LineRenderer>();
     }
 
     [PunRPC]
@@ -66,5 +80,13 @@ public class Draw : MonoBehaviour
         linePoints.Add(point);
         drawLine.positionCount = linePoints.Count;
         drawLine.SetPositions(linePoints.ToArray());
+    }
+
+    [PunRPC]
+    public void EndLine()
+    {
+        linePoints.Clear();
+        drawLine = null;
+        isDrawing = false;
     }
 }
