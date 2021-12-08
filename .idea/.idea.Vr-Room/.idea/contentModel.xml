@@ -6,8 +6,12 @@
     <e p="C:\проект\Vr-Room" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Data" t="Include">
+          <e p="Serialized_Vector3[]_noRoom.txt" t="Include" />
+        </e>
         <e p="draw" t="Include">
           <e p="Draw.cs" t="Include" />
+          <e p="ServerDrawer.cs" t="Include" />
         </e>
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
@@ -380,6 +384,9 @@
         <e p="Scripts" t="Include">
           <e p="ConnectToServer.cs" t="Include" />
           <e p="MenuManager.cs" t="Include" />
+          <e p="Save.cs" t="Include" />
+          <e p="SerializationController.cs" t="Include" />
+          <e p="Serializer.cs" t="Include" />
           <e p="SpawnPlayers.cs" t="Include" />
         </e>
         <e p="SteamVR" t="Include">

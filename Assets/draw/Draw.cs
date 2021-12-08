@@ -61,7 +61,6 @@ public class Draw : MonoBehaviour
         if (other.tag == "wall")
         {
             view.RPC("EndLine", RpcTarget.AllBuffered);
-            //controller.AddLine(drawLine);
         }
     }
 
@@ -84,7 +83,7 @@ public class Draw : MonoBehaviour
     [PunRPC]
     public void EndLine()
     {
-        controller.AddLine(drawLine);
+        controller.AddLine(linePoints.ToArray());
         linePoints.Clear();
         drawLine = null;
         isDrawing = false;

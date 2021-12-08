@@ -6,7 +6,7 @@ public class Save : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Tab))
             Controller.DeleteSerialization();
         if (Input.GetKeyDown(KeyCode.Space))
             Controller.Serialize();
