@@ -31,14 +31,6 @@ public class Serializer<TDrawing> //Можно ли сделать GameObject вместо TDrawing
         }
     }
 
-    /// <summary>
-    /// NotImplemented
-    /// </summary>
-    public void ReplaceDrawingInSerialization()
-    {
-        throw new NotImplementedException();
-    }
-
     public List<TDrawing> Deserialize()
     {
         var lines = new List<TDrawing>();

@@ -33,20 +33,4 @@ public class SerializationController : MonoBehaviour
             PhotonNetwork.Instantiate(brush.name, l.transform.position, Quaternion.identity);
         }
     }
-
-    /// <summary>
-    /// NotImplemented
-    /// </summary>
-    public void ModifyLine(LineRenderer line)
-    {
-        throw new NotImplementedException();
-    }
-
-    /// <summary>
-    /// NotImplemented
-    /// </summary>
-    public void DeleteLine(LineRenderer line)
-    {
-        throw new NotImplementedException();
-    }
 }
