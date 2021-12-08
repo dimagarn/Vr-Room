@@ -10,7 +10,7 @@ public class SpawnPlayers : MonoBehaviour
     public GameObject Controller;
     public GameObject Brush;
     private SerializationController controller;
-    private static bool firstStart;
+    private static bool firstStart = true;
 
     void Start()
     {

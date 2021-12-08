@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Save : MonoBehaviour
 {
     public SerializationController Controller;
-    // Start is called before the first frame update
-    void Start()
+
+    void Update()
     {
-        while (true)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-                Controller.Serialize();
-        }
+        if (Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown(KeyCode.LeftShift))
+            Controller.DeleteSerialization();
+        if (Input.GetKeyDown(KeyCode.Space))
+            Controller.Serialize();
     }
 }
