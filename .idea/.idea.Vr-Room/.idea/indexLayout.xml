@@ -53,7 +53,9 @@
       <Path>.idea</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
+      <Path>MonoBleedingEdge</Path>
       <Path>UserSettings</Path>
+      <Path>Vr Room_Data</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>

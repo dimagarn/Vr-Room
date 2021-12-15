@@ -6,8 +6,8 @@ using Valve.VR.InteractionSystem;
 
 public class Pencil : MonoBehaviour
 {
-    public GameObject UI;
-    private GameObject UIClone;
+    public UnityEvent SpawnPen;
+    public UnityEvent DestroyPen;
     private bool isUIreleased = false;
     private bool isNotpressed = true;
     private void HandAttachedUpdate(Hand hand)
@@ -17,9 +17,9 @@ public class Pencil : MonoBehaviour
         if (bestGrab != GrabTypes.None && isNotpressed)
         {
             if (isUIreleased)
-                Destroy(UIClone);
+                DestroyPen.Invoke();
             else
-                UIClone = Instantiate(UI, GetComponent<Transform>().position, Quaternion.identity);
+                SpawnPen.Invoke();
             isUIreleased = !isUIreleased;
             isNotpressed = false;
         }

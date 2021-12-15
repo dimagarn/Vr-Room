@@ -9,7 +9,7 @@ public class SpawnUI : MonoBehaviour
 
     public void Spawn()
     {
-        UIClone = Instantiate(UI, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+        UIClone = Instantiate(UI, GetComponent<Transform>().position, GetComponent<Transform>().rotation );
     }
 
     public void Destroy()
