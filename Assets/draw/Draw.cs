@@ -7,6 +7,8 @@ public class Draw : MonoBehaviour
     List<Vector3> linePoints;
     float timer;
     public float timerDelay;
+    public GameObject pencil;
+    private static Rigidbody pencilRig;
 
     public GameObject brush;
     LineRenderer drawLine;
@@ -14,6 +16,7 @@ public class Draw : MonoBehaviour
     {
         linePoints = new List<Vector3>();
         timer = timerDelay;
+        pencilRig = pencil.GetComponent<Rigidbody>();
     }
 
 
@@ -24,6 +27,8 @@ public class Draw : MonoBehaviour
             GameObject newLine = Instantiate(brush);
             drawLine = newLine.GetComponent<LineRenderer>();
         }
+
+        pencilRig.freezeRotation = true;
     }
 
     private void OnTriggerStay(Collider other)
@@ -48,5 +53,6 @@ public class Draw : MonoBehaviour
         {
             linePoints.Clear();
         }
+        pencilRig.freezeRotation = false;
     }
 }

@@ -54,6 +54,7 @@
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>MonoBleedingEdge</Path>
+      <Path>Temp</Path>
       <Path>UserSettings</Path>
       <Path>Vr Room_Data</Path>
       <Path>obj</Path>
