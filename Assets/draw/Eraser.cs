@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Draw : MonoBehaviour
+public class Eraser : MonoBehaviour
 {
     List<Vector3> linePoints;
     float timer;
@@ -13,11 +13,13 @@ public class Draw : MonoBehaviour
     public GameObject brush;
     private LineRenderer drawLine;
     private GameObject newLine;
+    private List<GameObject> listToDestroy;
     void Start()
     {
         linePoints = new List<Vector3>();
         timer = timerDelay;
         pencilRig = pencil.GetComponent<Rigidbody>();
+        listToDestroy = new List<GameObject>();
     }
 
 
@@ -28,6 +30,11 @@ public class Draw : MonoBehaviour
             newLine = Instantiate(brush);
             drawLine = newLine.GetComponent<LineRenderer>();
             pencilRig.freezeRotation = true;
+        }
+
+        else if (other.tag == "brush")
+        {
+            listToDestroy.Add(other.gameObject);
         }
     }
 
@@ -51,14 +58,11 @@ public class Draw : MonoBehaviour
     {
         if (other.tag == "wall")
         {
-            var meshCollider = newLine.AddComponent<MeshCollider>();
-            var mesh = new Mesh();
-            drawLine.BakeMesh(mesh, true);
-            meshCollider.sharedMesh = mesh;
-            meshCollider.convex = true;
-            meshCollider.isTrigger = true;
             linePoints.Clear();
             pencilRig.freezeRotation = false;
+            Destroy(newLine, .1f);
+            foreach (var e in listToDestroy)
+                Destroy(e, .1f);
         }
     }
 }
