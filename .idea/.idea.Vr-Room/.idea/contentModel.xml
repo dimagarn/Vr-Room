@@ -7,9 +7,9 @@
         <e p="draw" t="Include">
           <e p="Brush.cs" t="Include" />
           <e p="Draw.cs" t="Include" />
+          <e p="Eraser.cs" t="Include" />
           <e p="Pencil.cs" t="Include" />
           <e p="SpawnUI.cs" t="Include" />
-          <e p="wipe.cs" t="Include" />
         </e>
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
