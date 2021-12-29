@@ -11,6 +11,13 @@ namespace MeetingRoomVR.Character
 {
     public class AnimatedAvatar : MonoBehaviour
     {
+        [Header("Startup settings")]
+        public Transform HeadToFollow;
+        public Transform LeftHandToFollow;
+        public Transform RightHandToFollow;
+        [Header("Runtime settings")]
+        public bool UseHeadTethering = true;
+        public float HeadTetherDistance = 1.8f;
         public float StandingHeadHeight { get; private set; } = 1.7f;
         public float CrouchingHeadHeight { get; private set; } = 1.2f;
         public TrackingIK Head { get; private set; }
@@ -85,6 +92,9 @@ namespace MeetingRoomVR.Character
             Head.StopFollowing();
             RightHand.StopFollowing();
             LeftHand.StopFollowing();
+            Head.StartFollowing(HeadToFollow);
+            RightHand.StartFollowing(LeftHandToFollow);
+            LeftHand.StartFollowing(RightHandToFollow);
         }
 
         private void SetAnimatorFloat(int hashedId, float value)
@@ -98,6 +108,20 @@ namespace MeetingRoomVR.Character
             SetAnimatorFloat(crouchFloatHash, crouchValue);
             var hipsZOffset = Mathf.LerpUnclamped(0, 0.23f, Vector3.Dot(transform.up, Head.Transform.forward) * (crouchValue + 1));
             hipsPositionConstraint.data.offset = new Vector3(0, -0.59f, hipsZOffset);
+        }
+        private void ConstrainHeadTether()
+        {
+            //резкая телепортация, заменить на плавную/передвижение в точку
+            var headOffsetFromBodyRoot = Head.Transform.position - transform.position;
+            if (headOffsetFromBodyRoot.sqrMagnitude > HeadTetherDistance * HeadTetherDistance)
+            {
+                var headPosition = Head.TargetingTransform.position;
+                transform.position = new Vector3(
+                    headPosition.x,
+                    transform.position.y,
+                    headPosition.z);
+                Head.TargetingTransform.position = headPosition;
+            }
         }
 
         [SynchronizeMe]
@@ -121,6 +145,8 @@ namespace MeetingRoomVR.Character
             if (bodyNeedsToTurn)
                 vectorRightToReach = Vector3.ProjectOnPlane(Head.Transform.right, transform.up);
             transform.right = Vector3.Lerp(transform.right, vectorRightToReach, Time.deltaTime * 5);
+            if (UseHeadTethering)
+                ConstrainHeadTether();
         }
 
         private void OnDrawGizmos()

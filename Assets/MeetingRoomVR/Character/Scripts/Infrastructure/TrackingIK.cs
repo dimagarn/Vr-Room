@@ -15,6 +15,7 @@ namespace MeetingRoomVR.Character.Infrastructure
 
         [SynchronizeMe]
         public readonly Transform Transform;
+        public Transform TargetingTransform { get; private set; } = null;
         private readonly ParentConstraint parentConstraint;
         private readonly IRigConstraint ikConstraint;
 
@@ -31,6 +32,7 @@ namespace MeetingRoomVR.Character.Infrastructure
         [SynchronizeMe]
         public void StartFollowing(Transform target)
         {
+            TargetingTransform = target;
             parentConstraint.weight = target is null ? 0 : 1;
             //parentConstraint.constraintActive = target is null ? false : true;
             ikConstraint.weight = target is null ? 0 : 1;
