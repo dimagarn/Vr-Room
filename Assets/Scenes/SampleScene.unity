@@ -1799,6 +1799,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6540816685502600484, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: pencil
+      value: 
+      objectReference: {fileID: 8574812550857957442, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+    - target: {fileID: 6540816685502600484, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
       propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1861,6 +1865,62 @@ PrefabInstance:
     - target: {fileID: 8574812549496537844, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
       propertyPath: sceneViewId
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1480876753}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InitPencil
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6540816685502600484, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeTool
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Pencil, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Pencil, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8574812550857957441, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
       propertyPath: m_RootOrder
@@ -1936,6 +1996,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+--- !u!114 &1480876753 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6540816685502600484, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+  m_PrefabInstance: {fileID: 1480876752}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153386189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9ae7b853237784dbdf75fb51ccd96e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1503425843 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 54e45f9a8f95266409d9787fdd147187, type: 3}
@@ -1999,6 +2070,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6540816685502600484, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: pencil
+      value: 
+      objectReference: {fileID: 8574812550857957442, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
     - target: {fileID: 6540816685502600484, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
       propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2065,11 +2140,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2081,6 +2160,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InitPencil
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6540816685502600484, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeTool
       objectReference: {fileID: 0}
     - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
@@ -2090,9 +2185,21 @@ PrefabInstance:
     - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8964819845124626683, guid: d08510d9288b28140ab6d1823a18d681, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Pencil, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 7741479606234204815, guid: 51d6e887a6057e04792d71ec58d6f5bb, type: 3}
     - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574812550857957440, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8574812550857957441, guid: 2523ef0eebd1cc24b9e1401f56d0dfe6, type: 3}

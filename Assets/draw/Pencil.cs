@@ -31,9 +31,22 @@ public class Pencil : MonoBehaviour
         }
     }
 
+    public void InitPencil()
+    {
+        pencil.GetComponent<Pencil>().pencil = gameObject;
+    }
+
     public void ChangeTool(GameObject tool)
     {
+<<<<<<< Updated upstream
         var oldTool = pencil.transform.GetChild(1).gameObject;
+=======
+<<<<<<< HEAD
+        var oldTool = pencil.gameObject.transform.GetChild(1).gameObject;
+=======
+        var oldTool = pencil.transform.GetChild(1).gameObject;
+>>>>>>> 6992de9285f57d9778541a8570eb799e837c2609
+>>>>>>> Stashed changes
         Destroy(oldTool, .1f);
         var newTool = Instantiate(tool);
         newTool.transform.parent = pencil.transform;
