@@ -62,11 +62,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8574812549105327196}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0526, y: 0, z: 0.22}
+  m_LocalPosition: {x: 0.052599907, y: 0, z: 0.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8574812550857957441}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &8574812549105327193
 SphereCollider:
@@ -129,8 +129,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8574812549105327195}
   - {fileID: 7521918664402271284}
+  - {fileID: 8574812549105327195}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -324,7 +324,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9ae7b853237784dbdf75fb51ccd96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 1090043030583127968, guid: e32d47a6627058f42ad40b468530bcb7, type: 3}
+  SpawnPen:
+    m_PersistentCalls:
+      m_Calls: []
+  DestroyPen:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8064117694702459871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,7 +339,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bbd78fa595f0c124c8e7e72a33a0cacd, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bbd78fa595f0c124c8e7e72a33a0cacd, type: 3}
       propertyPath: m_LocalScale.x

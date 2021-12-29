@@ -7,7 +7,6 @@ public class Draw : MonoBehaviour
     List<Vector3> linePoints;
     float timer;
     public float timerDelay;
-    public GameObject pencil;
     private Rigidbody pencilRig;
 
     public GameObject brush;
@@ -17,9 +16,8 @@ public class Draw : MonoBehaviour
     {
         linePoints = new List<Vector3>();
         timer = timerDelay;
-        pencilRig = pencil.GetComponent<Rigidbody>();
+        pencilRig = GetComponentInParent<Rigidbody>();
     }
-
 
     private void OnTriggerEnter(Collider other)
     {

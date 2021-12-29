@@ -23,9 +23,20 @@ public class Pencil : MonoBehaviour
             isUIreleased = !isUIreleased;
             isNotpressed = false;
         }
+
         else if(bestGrab == GrabTypes.None)
         {
             isNotpressed = true;
         }
+    }
+
+    public void ChangeTool(GameObject tool)
+    {
+        var oldTool = gameObject.transform.GetChild(1).gameObject;
+        Destroy(oldTool, .1f);
+        var newTool = Instantiate(tool);
+        newTool.transform.parent = transform;
+        newTool.transform.localPosition =  new Vector3(0.05259991f, 0, 0.22f);
+        newTool.transform.localScale = new Vector3(1, 1, 1);        
     }
 }
