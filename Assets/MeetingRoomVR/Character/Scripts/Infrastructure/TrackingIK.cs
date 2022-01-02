@@ -12,12 +12,30 @@ namespace MeetingRoomVR.Character.Infrastructure
         public const string HeadIKName = "HeadIK";
         public const string LeftHandIKName = "LeftHandIK";
         public const string RightHandIKName = "RightHandIK";
+        public const string LeftFootIKName = "LeftFootIK";
+        public const string RightFootIKName = "RightFootIK";
 
         [SynchronizeMe]
         public readonly Transform Transform;
         public Transform TargetingTransform { get; private set; } = null;
         private readonly ParentConstraint parentConstraint;
         private readonly IRigConstraint ikConstraint;
+        private Vector3 rotationOffset;
+        public Vector3 RotationOffset
+        {
+            get => rotationOffset;
+            set
+            {
+                rotationOffset = value;
+                UpdateRotationOffset();
+            }
+        }
+
+        private void UpdateRotationOffset()
+        {
+            if (parentConstraint.rotationOffsets.Length > 0)
+                parentConstraint.SetRotationOffset(0, RotationOffset);
+        }
 
         public TrackingIK(Transform IKTransform)
         {
@@ -43,6 +61,7 @@ namespace MeetingRoomVR.Character.Infrastructure
                 sourceTransform = target,
                 weight = 1
             });
+            UpdateRotationOffset();
         }
 
         [SynchronizeMe]

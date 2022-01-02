@@ -11,13 +11,19 @@ namespace MeetingRoomVR.Character
 {
     public class AnimatedAvatar : MonoBehaviour
     {
-        [Header("Startup settings")]
+        #region EditorSettings
+        [Space(), Header("Updates only in Editor")]
+        public bool HideHead;
+        public bool HideHands;
         public Transform HeadToFollow;
         public Transform LeftHandToFollow;
         public Transform RightHandToFollow;
-        [Header("Runtime settings")]
+        public Vector3 LeftHandRotation;
+        public Vector3 RightHandRotation;
+        [Space(), Header("Runtime check")]
         public bool UseHeadTethering = true;
         public float HeadTetherDistance = 1.8f;
+        #endregion EditorSettings
         public float StandingHeadHeight { get; private set; } = 1.7f;
         public float CrouchingHeadHeight { get; private set; } = 1.2f;
         public TrackingIK Head { get; private set; }
@@ -27,6 +33,8 @@ namespace MeetingRoomVR.Character
         private Animator animator;
         private Animator cloneAnimator;
         private MultiPositionConstraint hipsPositionConstraint;
+        private SkinnedMeshRenderer headRenderer;
+        private SkinnedMeshRenderer handsRenderer;
         private Vector3 vectorRightToReach;
 
         #region HashedStrings
@@ -64,6 +72,18 @@ namespace MeetingRoomVR.Character
                     cloneAnimator = animComponent;
             }
             cloneAnimator.runtimeAnimatorController = animator.runtimeAnimatorController;
+            foreach (var meshRenderer in animator.GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                switch (meshRenderer.name)
+                {
+                    case "Head":
+                        headRenderer = meshRenderer;
+                        break;
+                    case "Hands":
+                        handsRenderer = meshRenderer;
+                        break;
+                }
+            }
             foreach (var constraintComponent in animator.GetComponentsInChildren<ParentConstraint>()) //Создаем TrackingIK объекты
             {
                 switch (constraintComponent.name)
@@ -92,9 +112,18 @@ namespace MeetingRoomVR.Character
             Head.StopFollowing();
             RightHand.StopFollowing();
             LeftHand.StopFollowing();
+            RefreshEditorSettings();
+        }
+
+        public void RefreshEditorSettings()
+        {
             Head.StartFollowing(HeadToFollow);
-            RightHand.StartFollowing(LeftHandToFollow);
-            LeftHand.StartFollowing(RightHandToFollow);
+            RightHand.StartFollowing(RightHandToFollow);
+            LeftHand.StartFollowing(LeftHandToFollow);
+            LeftHand.RotationOffset = LeftHandRotation;
+            RightHand.RotationOffset = RightHandRotation;
+            headRenderer.enabled = !HideHead;
+            handsRenderer.enabled = !HideHands;
         }
 
         private void SetAnimatorFloat(int hashedId, float value)
@@ -106,8 +135,8 @@ namespace MeetingRoomVR.Character
         private void SetCrouchState(float crouchValue)
         {
             SetAnimatorFloat(crouchFloatHash, crouchValue);
-            var hipsZOffset = Mathf.LerpUnclamped(0, 0.23f, Vector3.Dot(transform.up, Head.Transform.forward) * (crouchValue + 1));
-            hipsPositionConstraint.data.offset = new Vector3(0, -0.59f, hipsZOffset);
+            var hipsZOffset = Mathf.LerpUnclamped(0, -0.23f, Vector3.Dot(transform.up, Head.Transform.forward) * (crouchValue * 0.5f + 1));
+            hipsPositionConstraint.data.offset = new Vector3(0, hipsZOffset, -0.59f);
         }
         private void ConstrainHeadTether()
         {
