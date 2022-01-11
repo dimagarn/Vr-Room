@@ -2269,6 +2269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerVR
       objectReference: {fileID: 0}
+    - target: {fileID: 5258601937755393119, guid: ce2f931dfe51b084fa4fc4933bc6efd5, type: 3}
+      propertyPath: shitToDelete
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6802469907726743742, guid: ce2f931dfe51b084fa4fc4933bc6efd5, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2312,6 +2316,10 @@ PrefabInstance:
     - target: {fileID: 6802469907726743742, guid: ce2f931dfe51b084fa4fc4933bc6efd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002695907100881090, guid: ce2f931dfe51b084fa4fc4933bc6efd5, type: 3}
+      propertyPath: sceneViewId
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2f931dfe51b084fa4fc4933bc6efd5, type: 3}

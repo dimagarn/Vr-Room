@@ -51,9 +51,17 @@ namespace MeetingRoomVR.Character.Infrastructure
         public void StartFollowing(Transform target)
         {
             TargetingTransform = target;
-            parentConstraint.weight = target is null ? 0 : 1;
             //parentConstraint.constraintActive = target is null ? false : true;
-            ikConstraint.weight = target is null ? 0 : 1;
+            if (target == null)
+            {
+                parentConstraint.weight = 0;
+                ikConstraint.weight = 0;
+            }
+            else
+            {
+                parentConstraint.weight = 1;
+                ikConstraint.weight = 1;
+            }
             for (var i = parentConstraint.sourceCount - 1; i >= 0; i--)
                 parentConstraint.RemoveSource(i);
             parentConstraint.AddSource(new ConstraintSource

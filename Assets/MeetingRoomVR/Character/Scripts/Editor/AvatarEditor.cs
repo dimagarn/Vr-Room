@@ -7,13 +7,19 @@ using UnityEngine;
 [CustomEditor(typeof(AnimatedAvatar))]
 public class AvatarEditor : Editor
 {
+    private bool updateSettingsInEditor;
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
         if (Application.isPlaying)
         {
             var avatar = (AnimatedAvatar)target;
-            avatar.RefreshEditorSettings();
+            if (updateSettingsInEditor)
+                avatar.RefreshStartupSettings();
         }
+        if (GUILayout.Button("Enable Editor updates"))
+            updateSettingsInEditor = true;
+        if (GUILayout.Button("Disable Editor updates"))
+            updateSettingsInEditor = false;
     }
 }

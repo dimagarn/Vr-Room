@@ -112,10 +112,10 @@ namespace MeetingRoomVR.Character
             Head.StopFollowing();
             RightHand.StopFollowing();
             LeftHand.StopFollowing();
-            RefreshEditorSettings();
+            RefreshStartupSettings();
         }
 
-        public void RefreshEditorSettings()
+        public void RefreshStartupSettings()
         {
             Head.StartFollowing(HeadToFollow);
             RightHand.StartFollowing(RightHandToFollow);
