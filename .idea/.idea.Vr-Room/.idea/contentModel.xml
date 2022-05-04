@@ -410,6 +410,7 @@
           <e p="ConnectToServer.cs" t="Include" />
           <e p="MenuManager.cs" t="Include" />
           <e p="SpawnPlayers.cs" t="Include" />
+          <e p="Test.cs" t="Include" />
         </e>
         <e p="SteamVR" t="Include">
           <e p="Editor" t="Include">
