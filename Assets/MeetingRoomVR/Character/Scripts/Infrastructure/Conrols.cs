@@ -12,8 +12,8 @@ namespace MeetingRoomVR.Character.Infrastructure
 
     public interface IControls
     {
-        public Vector2 MovementVector { get; }
-        public bool IsSprinting { get; }
+        Vector2 MovementVector { get; }
+        bool IsSprinting { get; }
     }
 
     public class PCControls : IControls

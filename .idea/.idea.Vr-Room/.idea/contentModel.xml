@@ -38,6 +38,11 @@
             <e p="VR_вопросы.txt" t="Include" />
           </e>
         </e>
+        <e p="Online" t="Include">
+          <e p="ListItem.cs" t="Include" />
+          <e p="PhotonManager.cs" t="Include" />
+          <e p="Test.cs" t="Include" />
+        </e>
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
             <e p="Code" t="Include">
@@ -405,12 +410,6 @@
               </e>
             </e>
           </e>
-        </e>
-        <e p="Scripts" t="Include">
-          <e p="ConnectToServer.cs" t="Include" />
-          <e p="MenuManager.cs" t="Include" />
-          <e p="SpawnPlayers.cs" t="Include" />
-          <e p="Test.cs" t="Include" />
         </e>
         <e p="SteamVR" t="Include">
           <e p="Editor" t="Include">
