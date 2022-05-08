@@ -1611,9 +1611,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 354579625961230, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 306892311170538455, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
+      propertyPath: sceneViewId
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 644684406296600954, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 815169956883817498, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5232245175164450665, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
       propertyPath: m_Name
       value: VRPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258811167413055975, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6802256409207529050, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
       propertyPath: m_RootOrder

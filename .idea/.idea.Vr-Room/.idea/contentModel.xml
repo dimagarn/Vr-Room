@@ -42,6 +42,7 @@
           <e p="GameManager.cs" t="Include" />
           <e p="ListItem.cs" t="Include" />
           <e p="PhotonManager.cs" t="Include" />
+          <e p="PlayerNetwork.cs" t="Include" />
           <e p="Test.cs" t="Include" />
         </e>
         <e p="Photon" t="Include">

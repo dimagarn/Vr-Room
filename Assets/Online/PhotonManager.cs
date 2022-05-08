@@ -96,7 +96,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        PhotonNetwork.Destroy(player.gameObject);
         PhotonNetwork.LoadLevel("Menu");
+        PhotonNetwork.Destroy(player.gameObject);
     }
 }
