@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR;
 using Photon.Pun;
+using Valve.VR.InteractionSystem;
 
 public class PlayerNetwork : MonoBehaviour
 {
@@ -16,8 +17,9 @@ public class PlayerNetwork : MonoBehaviour
         if (!photonView.IsMine)
         {
             input.SetActive(false);
-            dude.SetActive(false);
             hand.SetActive(false);
+            dude.GetComponent<Camera>().enabled = false;
+            dude.GetComponent<FallbackCameraController>().enabled = false;
         }
     }
 }

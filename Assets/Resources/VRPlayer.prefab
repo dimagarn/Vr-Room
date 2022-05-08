@@ -688,6 +688,7 @@ GameObject:
   - component: {fileID: 1540965268530945211}
   - component: {fileID: 2365867386329307349}
   - component: {fileID: 5824934604471454519}
+  - component: {fileID: 3948689399124218865}
   m_Layer: 26
   m_Name: FallbackHand
   m_TagString: Untagged
@@ -777,6 +778,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3948689399124218865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589416971468150705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &790231170553815540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1621,7 @@ GameObject:
   - component: {fileID: 7358932616561311589}
   - component: {fileID: 1887874470173769931}
   - component: {fileID: 7689240683302786486}
+  - component: {fileID: 2292514960710574226}
   m_Layer: 0
   m_Name: FallbackObjects
   m_TagString: MainCamera
@@ -1683,6 +1701,22 @@ MonoBehaviour:
   speed: 4
   shiftSpeed: 16
   showInstructions: 1
+--- !u!114 &2292514960710574226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4409770886075084581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &5227415009476156880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,10 +1838,11 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 6408996844214403509}
+  - {fileID: 6041924133823612294}
   - {fileID: 3343708466440637699}
   - {fileID: 4149101658032397828}
-  - {fileID: 6041924133823612294}
-  - {fileID: 0}
+  - {fileID: 2292514960710574226}
+  - {fileID: 3948689399124218865}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1832,7 +1867,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5232245175164450665}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dc51839ccde6ba4c8ce0b9ae4097873, type: 3}
   m_Name: 
@@ -1847,7 +1882,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5258811167413055975}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
