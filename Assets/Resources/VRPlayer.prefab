@@ -58,6 +58,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plyer: {fileID: 8689398811631235547}
   avatar: {fileID: 5258811167413055973}
+--- !u!114 &3148209075493613168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5232245175164450665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1001 &354579625961188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,7 +83,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5232594798393414029, guid: ce2f931dfe51b084fa4fc4933bc6efd5, type: 3}
       propertyPath: m_Name
-      value: VRPlayer Variant
+      value: VRPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 6802469907726743742, guid: ce2f931dfe51b084fa4fc4933bc6efd5, type: 3}
       propertyPath: m_RootOrder
@@ -117,6 +133,14 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7002695907100881090, guid: ce2f931dfe51b084fa4fc4933bc6efd5, type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002695907100881090, guid: ce2f931dfe51b084fa4fc4933bc6efd5, type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 3148209075493613168}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2f931dfe51b084fa4fc4933bc6efd5, type: 3}
 --- !u!1 &5232245175164450665 stripped

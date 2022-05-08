@@ -1448,9 +1448,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   region: ru
+  nickName: Sasha
   roomName: {fileID: 775792438}
   itemPrefab: {fileID: 5551329625723142125, guid: 351104fc78a8ac8408b345cc287349ff, type: 3}
   content: {fileID: 874358325}
+  player_prefab: {fileID: 0}
 --- !u!4 &1157781772
 Transform:
   m_ObjectHideFlags: 0
@@ -1598,7 +1600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687097952675284956, guid: 718fc05ba9d2fd8498ae432f92e08acd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 718fc05ba9d2fd8498ae432f92e08acd, type: 3}

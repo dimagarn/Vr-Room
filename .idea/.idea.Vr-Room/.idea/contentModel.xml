@@ -39,6 +39,7 @@
           </e>
         </e>
         <e p="Online" t="Include">
+          <e p="GameManager.cs" t="Include" />
           <e p="ListItem.cs" t="Include" />
           <e p="PhotonManager.cs" t="Include" />
           <e p="Test.cs" t="Include" />

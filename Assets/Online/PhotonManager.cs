@@ -3,24 +3,40 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] public string region;
+    [SerializeField] public string nickName;
     [SerializeField] public InputField roomName;
     [SerializeField] public ListItem itemPrefab;
     [SerializeField] public Transform content;
     
     public List<RoomInfo> allRoomInfo = new List<RoomInfo>();
+
+    private GameObject player;
+    [SerializeField] public GameObject player_prefab;
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.ConnectToRegion(region);
+
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            PhotonNetwork.Instantiate(player_prefab.name, new Vector3(2.512f, -0.292f, 6.963f), Quaternion.identity);
+        }
     }
 
     public override void OnConnectedToMaster()
     {
         Debug.Log("Вы подключены к серверу " + PhotonNetwork.CloudRegion);
+        if (nickName == "")
+        {
+            PhotonNetwork.NickName = "User";
+        }
+        else PhotonNetwork.NickName = nickName;
+        
         if(!PhotonNetwork.InLobby) 
             PhotonNetwork.JoinLobby();
     }
@@ -37,7 +53,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         var roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
         PhotonNetwork.JoinOrCreateRoom(roomName.text, roomOptions, TypedLobby.Default);
-        PhotonNetwork.LoadLevel("SampleScene");
     }
 
     public override void OnCreatedRoom()
@@ -81,6 +96,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
+        PhotonNetwork.Destroy(player.gameObject);
         PhotonNetwork.LoadLevel("Menu");
     }
 }
