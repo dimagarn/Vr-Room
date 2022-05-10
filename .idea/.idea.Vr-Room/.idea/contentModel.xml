@@ -44,6 +44,7 @@
           <e p="PhotonManager.cs" t="Include" />
           <e p="PlayerNetwork.cs" t="Include" />
           <e p="Test.cs" t="Include" />
+          <e p="XRGrabNetwork.cs" t="Include" />
         </e>
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">

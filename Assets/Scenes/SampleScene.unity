@@ -1082,7 +1082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3713581641537984583, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
       propertyPath: OwnershipTransfer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3713581641537984600, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
       propertyPath: m_Name
