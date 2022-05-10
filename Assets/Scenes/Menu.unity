@@ -1718,6 +1718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VRPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5258811167413055973, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
+      propertyPath: HideHands
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5258811167413055975, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
       propertyPath: m_IsActive
       value: 1

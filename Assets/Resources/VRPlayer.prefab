@@ -1872,9 +1872,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc51839ccde6ba4c8ce0b9ae4097873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dude: {fileID: 4409770886075084581}
+  noneVRContent: {fileID: 4409770886075084581}
   input: {fileID: 9122439249897025811}
-  hand: {fileID: 589416971468150705}
+  noneVRHand: {fileID: 589416971468150705}
+  VRLeftHand: {fileID: 3200894090782055816}
+  VRRightHand: {fileID: 3677270718110800130}
+  VRCamera: {fileID: 5437959528179207289}
 --- !u!114 &6041924133823612294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1882,7 +1885,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5258811167413055975}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
