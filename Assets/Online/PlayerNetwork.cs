@@ -14,7 +14,7 @@ public class PlayerNetwork : MonoBehaviour
     public GameObject VRRightHand;
     public GameObject VRCamera;
     private PhotonView photonView;
-    
+
     // Start is called before the first frame update
     void Start()
     {

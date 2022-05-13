@@ -12,6 +12,9 @@
           <e p="Pencil.cs" t="Include" />
           <e p="SpawnUI.cs" t="Include" />
         </e>
+        <e p="KeyBoard" t="Include">
+          <e p="KeyScript.cs" t="Include" />
+        </e>
         <e p="MeetingRoomVR" t="Include">
           <e p="Character" t="Include">
             <e p="Scripts" t="Include">

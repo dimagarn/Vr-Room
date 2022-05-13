@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     private GameObject player;
     [SerializeField] public GameObject player_prefab;
+
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -27,6 +29,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             PhotonNetwork.Instantiate(player_prefab.name, new Vector3(2.512f, -0.292f, 6.963f), Quaternion.identity);
         }
     }
+    
 
     public override void OnConnectedToMaster()
     {
@@ -51,7 +54,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         if(!PhotonNetwork.IsConnected)
             return;
         var roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 2;
+        roomOptions.MaxPlayers = 3;
         PhotonNetwork.JoinOrCreateRoom(roomName.text, roomOptions, TypedLobby.Default);
     }
 
