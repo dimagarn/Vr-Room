@@ -1851,6 +1851,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 5551329625723142125, guid: 351104fc78a8ac8408b345cc287349ff, type: 3}
   content: {fileID: 874358325}
   player_prefab: {fileID: 0}
+  playerC: {fileID: 1359448118}
 --- !u!4 &1157781772
 Transform:
   m_ObjectHideFlags: 0
@@ -2082,6 +2083,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2c2de9dcff0a24d8ef2ada9073822f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1359448118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5232245175164450665, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
+  m_PrefabInstance: {fileID: 1512382763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1512382763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2099,7 +2105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 644684406296600954, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 815169956883817498, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
       propertyPath: sceneViewId

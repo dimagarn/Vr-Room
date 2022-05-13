@@ -18,6 +18,15 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     private GameObject player;
     [SerializeField] public GameObject player_prefab;
+    [SerializeField] public GameObject playerC;
+
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            PhotonNetwork.Instantiate(player_prefab.name, Vector3.zero, Quaternion.identity);
+        }
+    }
 
     void Start()
     {
@@ -26,7 +35,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
-            PhotonNetwork.Instantiate(player_prefab.name, new Vector3(2.512f, -0.292f, 6.963f), Quaternion.identity);
+           //PhotonNetwork.Instantiate(player_prefab.name, new Vector3(2.512f, -0.292f, 6.963f), Quaternion.identity);
         }
     }
     
@@ -89,6 +98,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        Destroy(playerC);
         PhotonNetwork.LoadLevel("SampleScene");
     }
 

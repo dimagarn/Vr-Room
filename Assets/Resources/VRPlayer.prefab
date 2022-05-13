@@ -1775,7 +1775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5232245175164450665}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 2.512, y: -0.292, z: 6.963}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2369149173056076473}
@@ -1878,6 +1878,7 @@ MonoBehaviour:
   VRLeftHand: {fileID: 3200894090782055816}
   VRRightHand: {fileID: 3677270718110800130}
   VRCamera: {fileID: 5437959528179207289}
+  VR: {fileID: 1838880827667802215}
 --- !u!114 &6041924133823612294
 MonoBehaviour:
   m_ObjectHideFlags: 0

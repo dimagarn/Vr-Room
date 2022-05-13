@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR;
 using Photon.Pun;
@@ -13,11 +14,14 @@ public class PlayerNetwork : MonoBehaviour
     public GameObject VRLeftHand;
     public GameObject VRRightHand;
     public GameObject VRCamera;
+    public GameObject VR;
     private PhotonView photonView;
+    private static PlayerNetwork _playerNetwork;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        
         photonView = GetComponent<PhotonView>();
         if (!photonView.IsMine)
         {
@@ -25,7 +29,9 @@ public class PlayerNetwork : MonoBehaviour
             noneVRHand.GetComponent<Hand>().enabled = false;
             noneVRContent.GetComponent<Camera>().enabled = false;
             noneVRContent.GetComponent<FallbackCameraController>().enabled = false;
+            //GetComponent<Player>().enabled = false;
 
+            //VR.SetActive(false);
             VRCamera.GetComponent<Camera>().enabled = false;
             VRCamera.GetComponent<SteamVR_Fade>().enabled = false;
             VRLeftHand.GetComponent<Hand>().enabled = false;
