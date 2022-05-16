@@ -16,10 +16,10 @@ MonoBehaviour:
     AppIdRealtime: ddb1b615-2940-4211-9ba4-d8e6676a326a
     AppIdFusion: 
     AppIdChat: 
-    AppIdVoice: 
+    AppIdVoice: 9e7b8860-c3a1-4179-a720-6cf5dc91aba8
     AppVersion: 
     UseNameServer: 1
-    FixedRegion: 
+    FixedRegion: ru
     Server: 
     Port: 0
     ProxyServer: 
@@ -44,5 +44,5 @@ MonoBehaviour:
   - ChangeColour
   - HeresWhy
   DisableAutoOpenWizard: 1
-  ShowSettings: 0
+  ShowSettings: 1
   DevRegionSetOnce: 1
