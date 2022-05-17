@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Draw : MonoBehaviour
 {
@@ -10,53 +10,71 @@ public class Draw : MonoBehaviour
     private Rigidbody pencilRig;
 
     public GameObject brush;
-    private LineRenderer drawLine;
-    private GameObject newLine;
+    [PunRPC] private LineRenderer drawLine;
+    [PunRPC] private GameObject newLine;
+    
+    private PhotonView photonView;
     void Start()
     {
         linePoints = new List<Vector3>();
         timer = timerDelay;
-        pencilRig = GetComponentInParent<Rigidbody>();
+        pencilRig = GetComponent<Rigidbody>();
+        photonView = GetComponent<PhotonView>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "wall")
+        Debug.Log(photonView.IsMine);
+        if (other.tag == "wall" && photonView.IsMine)
         {
-            newLine = Instantiate(brush);
-            drawLine = newLine.GetComponent<LineRenderer>();
-            pencilRig.freezeRotation = true;
+            photonView.RPC("StartDraw", RpcTarget.AllBuffered);
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "wall")
+        if (other.tag == "wall" && photonView.IsMine)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                linePoints.Add(transform.position);
-                drawLine.positionCount = linePoints.Count;
-                drawLine.SetPositions(linePoints.ToArray());
-
-                timer = timerDelay;
-            }
+            photonView.RPC("OnDrawing", RpcTarget.AllBuffered);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "wall")
+        if (other.tag == "wall" && photonView.IsMine)
         {
-            var meshCollider = newLine.AddComponent<MeshCollider>();
-            var mesh = new Mesh();
-            drawLine.BakeMesh(mesh, true);
-            meshCollider.sharedMesh = mesh;
-            meshCollider.convex = true;
-            meshCollider.isTrigger = true;
-            linePoints.Clear();
-            pencilRig.freezeRotation = false;
+            photonView.RPC("EndDraw", RpcTarget.AllBuffered);
         }
+    }
+
+    [PunRPC]
+    private void StartDraw()
+    {
+        newLine = Instantiate(brush);
+        drawLine = newLine.GetComponent<LineRenderer>();
+        pencilRig.freezeRotation = true;
+    }
+
+    [PunRPC]
+    private void OnDrawing()
+    {
+        linePoints.Add(transform.position + new Vector3(0.02f, 0f, 0.07f));
+        drawLine.positionCount = linePoints.Count;
+        drawLine.SetPositions(linePoints.ToArray());
+
+        timer = timerDelay;
+    }
+
+    [PunRPC]
+    private void EndDraw()
+    {
+        var meshCollider = newLine.AddComponent<MeshCollider>();
+        var mesh = new Mesh();
+        drawLine.BakeMesh(mesh, true);
+        meshCollider.sharedMesh = mesh;
+        meshCollider.convex = true;
+        meshCollider.isTrigger = true;
+        linePoints.Clear();
+        pencilRig.freezeRotation = false;
     }
 }
