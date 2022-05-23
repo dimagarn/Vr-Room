@@ -655,6 +655,11 @@
             </e>
           </e>
         </e>
+        <e p="Scripts" t="Include">
+          <e p="Save.cs" t="Include" />
+          <e p="SerializationController.cs" t="Include" />
+          <e p="Serializer.cs" t="Include" />
+        </e>
         <e p="SteamVR" t="Include">
           <e p="Editor" t="Include">
             <e p="SteamVR_AutoEnableVR_2018to2019.cs" t="Include" />

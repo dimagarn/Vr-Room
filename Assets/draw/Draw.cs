@@ -13,6 +13,9 @@ public class Draw : MonoBehaviour
     [PunRPC] private LineRenderer drawLine;
     [PunRPC] private GameObject newLine;
     
+    public GameObject Controller;
+    SerializationController controller;
+    
     private PhotonView photonView;
     void Start()
     {
@@ -20,6 +23,7 @@ public class Draw : MonoBehaviour
         timer = timerDelay;
         pencilRig = GetComponent<Rigidbody>();
         photonView = GetComponent<PhotonView>();
+        controller = Controller.GetComponent<SerializationController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,7 +54,7 @@ public class Draw : MonoBehaviour
     [PunRPC]
     private void StartDraw()
     {
-        newLine = Instantiate(brush);
+        newLine = PhotonNetwork.Instantiate(brush.name, new Vector3(), Quaternion.identity);
         drawLine = newLine.GetComponent<LineRenderer>();
         pencilRig.freezeRotation = true;
     }
@@ -68,6 +72,7 @@ public class Draw : MonoBehaviour
     [PunRPC]
     private void EndDraw()
     {
+        controller.AddLine(linePoints.ToArray());
         var meshCollider = newLine.AddComponent<MeshCollider>();
         var mesh = new Mesh();
         drawLine.BakeMesh(mesh, true);
