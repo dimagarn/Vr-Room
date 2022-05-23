@@ -19,12 +19,16 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     private GameObject player;
     [SerializeField] public GameObject player_prefab;
     [SerializeField] public GameObject playerC;
+    [SerializeField] public GameObject sController;
+    [SerializeField] public GameObject brush;
 
     private void Awake()
     {
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
             PhotonNetwork.Instantiate(player_prefab.name, Vector3.zero, Quaternion.identity);
+            var serial = sController.GetComponent<SerializationController>();
+            serial.Deserialize(brush);
         }
     }
 
