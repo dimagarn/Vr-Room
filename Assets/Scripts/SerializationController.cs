@@ -9,7 +9,7 @@ public class SerializationController : MonoBehaviour
 {
     List<Vector3[]> lines = new List<Vector3[]>(); //опять же возможно стоит использовать GameObkect
     StringBuilder str = new StringBuilder();
-    Serializer<Vector3[]> serializer = new Serializer<Vector3[]>("a"); 
+    Serializer<Vector3[]> serializer = new Serializer<Vector3[]>(PhotonNetwork.CurrentRoom.Name); 
 
     public void AddLine(Vector3[] line)
     {
