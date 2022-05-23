@@ -30,6 +30,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             PhotonNetwork.Instantiate(player_prefab.name, Vector3.zero, Quaternion.identity);
             serial = sController.GetComponent<SerializationController>();
+            serial.CreateSerializer(PhotonNetwork.CurrentRoom.Name);
             serial.Deserialize(brush);
         }
     }
@@ -123,12 +124,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-            //var path = @$"Assets\Data\Serialized_{typeof(GameObject).Name}_{PhotonNetwork.CurrentRoom.Name}.txt";
-            stream.SendNext(serial);
+            //stream.SendNext(serial);
         }
         else
         {
-            serial = (SerializationController)stream.ReceiveNext();
+            //serial = (SerializationController)stream.ReceiveNext();
         }
     }
 }

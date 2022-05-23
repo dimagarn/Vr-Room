@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Valve.Newtonsoft.Json;
+using UnityEngine;
 
 public class Serializer<GameObject> //Можно ли сделать GameObject вместо TDrawing
 {
@@ -9,7 +10,7 @@ public class Serializer<GameObject> //Можно ли сделать GameObject 
 
     public Serializer(string room)
     {
-        path = @$"Assets\Data\Serialized_{typeof(GameObject).Name}_{room}.txt";
+        path = @$"{Application.dataPath}\Serialized_{typeof(GameObject).Name}_{room}.txt";
     }
 
     public Serializer(string path, string room)
