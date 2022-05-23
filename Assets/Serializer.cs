@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using UnityEngine;
 using Valve.Newtonsoft.Json;
 
 public class Serializer<GameObject> //Можно ли сделать GameObject вместо TDrawing
@@ -9,7 +11,11 @@ public class Serializer<GameObject> //Можно ли сделать GameObject 
 
     public Serializer(string room)
     {
-        path = @$"Assets\Data\Serialized_{typeof(GameObject).Name}_{room}.txt";
+        path = Application.dataPath + "/StreamingAssets";
+        if (Directory.Exists( Application.dataPath + "/StreamingAssets") == false)
+        {
+            Directory.CreateDirectory(Application.dataPath + "/StreamingAssets");
+        }
     }
 
     public Serializer(string path, string room)

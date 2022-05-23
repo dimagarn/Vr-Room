@@ -123,7 +123,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-            //var path = @$"Assets\Data\Serialized_{typeof(GameObject).Name}_{PhotonNetwork.CurrentRoom.Name}.txt";
             stream.SendNext(serial);
         }
         else
