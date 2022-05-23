@@ -6,7 +6,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 
-public class PhotonManager : MonoBehaviourPunCallbacks
+public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
 {
     [SerializeField] public string region;
     [SerializeField] public string nickName;
@@ -22,12 +22,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     [SerializeField] public GameObject sController;
     [SerializeField] public GameObject brush;
 
+    private SerializationController serial;
+
     private void Awake()
     {
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
             PhotonNetwork.Instantiate(player_prefab.name, Vector3.zero, Quaternion.identity);
-            var serial = sController.GetComponent<SerializationController>();
+            serial = sController.GetComponent<SerializationController>();
             serial.Deserialize(brush);
         }
     }
@@ -115,5 +117,18 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel("Menu");
         PhotonNetwork.Destroy(player.gameObject);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            //var path = @$"Assets\Data\Serialized_{typeof(GameObject).Name}_{PhotonNetwork.CurrentRoom.Name}.txt";
+            stream.SendNext(serial);
+        }
+        else
+        {
+            serial = (SerializationController)stream.ReceiveNext();
+        }
     }
 }

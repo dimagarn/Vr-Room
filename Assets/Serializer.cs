@@ -1,27 +1,23 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using UnityEngine;
 using Valve.Newtonsoft.Json;
 
-public class Serializer<TDrawing> //Можно ли сделать GameObject вместо TDrawing
+public class Serializer<GameObject> //РњРѕР¶РЅРѕ Р»Рё СЃРґРµР»Р°С‚СЊ GameObject РІРјРµСЃС‚Рѕ TDrawing
 {
-    private string path; // Изменить -> Resourses?
+    private string path; // РР·РјРµРЅРёС‚СЊ -> Resourses?
 
     public Serializer(string room)
     {
-        path = @$"Assets\Data\Serialized_{typeof(TDrawing).Name}_{room}.txt";
+        path = @$"Assets\Data\Serialized_{typeof(GameObject).Name}_{room}.txt";
     }
 
     public Serializer(string path, string room)
     {
-        path = @$"{path}\Serialized_{typeof(TDrawing).Name}_{room}.txt";
+        path = @$"{path}\Serialized_{typeof(GameObject).Name}_{room}.txt";
     }
 
-    public void Serialise(List<TDrawing> drawing)
+    public void Serialise(List<GameObject> drawing)
     {
         var setting = new JsonSerializerSettings
         {
@@ -40,16 +36,16 @@ public class Serializer<TDrawing> //Можно ли сделать GameObject вместо TDrawing
         File.Delete(path);
     }
 
-    public List<TDrawing> Deserialize()
+    public List<GameObject> Deserialize()
     {
-        var lines = new List<TDrawing>();
+        var lines = new List<GameObject>();
         if (!File.Exists(path))
             return lines;
         using (StreamReader sw = new StreamReader(path, Encoding.GetEncoding(1251)))
         {
             var serializedDrawings = sw.ReadToEnd();
             if (serializedDrawings.Length != 0)
-                lines = JsonConvert.DeserializeObject<List<TDrawing>>(serializedDrawings);
+                lines = JsonConvert.DeserializeObject<List<GameObject>>(serializedDrawings);
         }
         return lines;
     }
