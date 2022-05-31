@@ -8,6 +8,12 @@ public class Brush : MonoBehaviour
 
     public void ChangeColor(Material newMaterial)
     {
+        photonView.RPC("CreateLine", RpcTarget.AllBuffered, newMaterial);
+    }
+    
+    [PunRPC]
+    private void CreateLine(Material newMaterial)
+    {
         Debug.Log(newMaterial.ToString());
         brush.GetComponent< LineRenderer>().material = newMaterial;
     }
