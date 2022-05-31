@@ -47,6 +47,10 @@
           <e p="ListItem.cs" t="Include" />
           <e p="PhotonManager.cs" t="Include" />
           <e p="PlayerNetwork.cs" t="Include" />
+          <e p="RoomDB" t="Include">
+            <e p="IRoomDB.cs" t="Include" />
+            <e p="YandexRoomDB.cs" t="Include" />
+          </e>
           <e p="Test.cs" t="Include" />
           <e p="XRGrabNetwork.cs" t="Include" />
         </e>
