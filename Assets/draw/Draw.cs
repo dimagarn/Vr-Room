@@ -15,7 +15,6 @@ public class Draw : MonoBehaviour
     
     public GameObject Controller;
     SerializationController controller;
-    public GameObject point;
     
     private PhotonView photonView;
     void Start()
@@ -63,7 +62,7 @@ public class Draw : MonoBehaviour
     [PunRPC]
     private void OnDrawing()
     {
-        linePoints.Add(point.transform.position);
+        linePoints.Add(transform.position + new Vector3(0.02f, 0f, 0.07f));
         drawLine.positionCount = linePoints.Count;
         drawLine.SetPositions(linePoints.ToArray());
 
