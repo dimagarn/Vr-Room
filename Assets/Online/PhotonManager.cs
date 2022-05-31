@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
+using Valve.VR;
 
 public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
 {
@@ -112,7 +113,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
 
     public override void OnJoinedRoom()
     {
-        Destroy(playerC);
+        if(SteamVR.instance != null)
+            Destroy(playerC);
         PhotonNetwork.LoadLevel("SampleScene");
     }
 
