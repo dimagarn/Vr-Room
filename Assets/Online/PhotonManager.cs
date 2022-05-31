@@ -16,19 +16,21 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
     
     public List<RoomInfo> allRoomInfo = new List<RoomInfo>();
 
-    private GameObject player;
     [SerializeField] public GameObject player_prefab;
     [SerializeField] public GameObject playerC;
     [SerializeField] public GameObject sController;
     [SerializeField] public GameObject brush;
 
+    public GameObject follow;
     private SerializationController serial;
+    private GameObject serverPlayer;
 
     private void Awake()
     {
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
-            PhotonNetwork.Instantiate(player_prefab.name, Vector3.zero, Quaternion.identity);
+            //player_prefab.transform.position = player.transform.position;
+            serverPlayer = PhotonNetwork.Instantiate(player_prefab.name, Vector3.zero, Quaternion.identity);
             serial = sController.GetComponent<SerializationController>();
             serial.CreateSerializer(PhotonNetwork.CurrentRoom.Name);
             serial.Deserialize(brush);
@@ -45,7 +47,12 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
            //PhotonNetwork.Instantiate(player_prefab.name, new Vector3(2.512f, -0.292f, 6.963f), Quaternion.identity);
         }
     }
-    
+
+    private void Update()
+    {
+        serverPlayer.transform.position = follow.transform.position;
+        serverPlayer.transform.rotation = follow.transform.rotation;
+    }
 
     public override void OnConnectedToMaster()
     {
@@ -117,7 +124,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
     public override void OnLeftRoom()
     {
         PhotonNetwork.LoadLevel("Menu");
-        PhotonNetwork.Destroy(player.gameObject);
+        PhotonNetwork.Destroy(playerC.gameObject);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
