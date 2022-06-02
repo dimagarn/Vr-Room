@@ -421,10 +421,18 @@ PrefabInstance:
     - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
       propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 676154113}
     - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
       propertyPath: DestroyPen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 676154113}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: DestroyPen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Destroy
       objectReference: {fileID: 0}
     - target: {fileID: 3713581641537984583, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
       propertyPath: sceneViewId
@@ -678,7 +686,7 @@ MonoBehaviour:
   roomName: {fileID: 0}
   itemPrefab: {fileID: 0}
   content: {fileID: 0}
-  player_prefab: {fileID: 1950478196792661765, guid: 9d4ee4497bbc5ef4d83037951b53f72f, type: 3}
+  player_prefab: {fileID: 6974171163834849167, guid: d0eb0c4f5370fc14792303f150004133, type: 3}
   playerC: {fileID: 719058338}
   sController: {fileID: 138449747}
   brush: {fileID: 5511708783885316287, guid: f34a05e8289b9834f8f61cd2afc0387e, type: 3}
@@ -1177,6 +1185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VRPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5258811167413055975, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5478686512382885052, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
       propertyPath: sceneViewId
       value: 1
@@ -1187,15 +1199,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6802256409207529050, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.12
       objectReference: {fileID: 0}
     - target: {fileID: 6802256409207529050, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6802256409207529050, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.29
       objectReference: {fileID: 0}
     - target: {fileID: 6802256409207529050, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1236,6 +1248,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5469496026023290882, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
   m_PrefabInstance: {fileID: 676154111}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &676154113 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 605247460, guid: e12e25b83ec269c4b8fda2e82e330e34, type: 3}
+  m_PrefabInstance: {fileID: 676154111}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1f9c3c6e7713a43be17005096ae80c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &701904731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1252,11 +1275,43 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 2453f96f3cffba9488a7942ba319f7e7, type: 2}
     - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
       propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 676154113}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: DestroyPen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 676154113}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
-      propertyPath: DestroyPen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: DestroyPen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Destroy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SpawnUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3713581641537984582, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
@@ -3236,10 +3291,18 @@ PrefabInstance:
     - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
       propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 676154113}
     - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
       propertyPath: DestroyPen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 676154113}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: SpawnPen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284229189092453694, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
+      propertyPath: DestroyPen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Destroy
       objectReference: {fileID: 0}
     - target: {fileID: 3713581641537984583, guid: 2600ce5bfa41d7d4f90465177fb4c876, type: 3}
       propertyPath: sceneViewId

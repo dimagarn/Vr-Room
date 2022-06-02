@@ -14,7 +14,6 @@ namespace MeetingRoomVR.Character
         #region EditorSettings
         [Space(), Header("Updates only in Editor")]
         public bool HideHead;
-        public bool HideHands;
         public Transform HeadToFollow;
         public Transform LeftHandToFollow;
         public Transform RightHandToFollow;
@@ -36,6 +35,7 @@ namespace MeetingRoomVR.Character
         private SkinnedMeshRenderer headRenderer;
         private SkinnedMeshRenderer handsRenderer;
         private Vector3 vectorRightToReach;
+        public bool HideHands;
 
         #region HashedStrings
         private readonly int crouchFloatHash = Animator.StringToHash("Crouch");

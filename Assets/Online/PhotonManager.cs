@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using MeetingRoomVR.Character;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using Valve.VR;
+using Player = Valve.VR.InteractionSystem.Player;
 
 public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
 {
@@ -32,6 +34,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             //player_prefab.transform.position = player.transform.position;
             serverPlayer = PhotonNetwork.Instantiate(player_prefab.name, Vector3.zero, Quaternion.identity);
+            if (SteamVR.instance != null)
+                serverPlayer.transform.Find("Avatar").GetComponent<AnimatedAvatar>().HideHands = true;
+            serverPlayer.GetComponent<VRbinder>().plyer = playerC.GetComponent<Player>();
             serial = sController.GetComponent<SerializationController>();
             serial.CreateSerializer(PhotonNetwork.CurrentRoom.Name);
             serial.Deserialize(brush);
@@ -51,8 +56,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
 
     private void Update()
     {
-        serverPlayer.transform.position = follow.transform.position;
-        serverPlayer.transform.rotation = follow.transform.rotation;
+        serverPlayer.transform.Find("head").transform.position = follow.transform.position;
+        serverPlayer.transform.Find("head").transform.rotation = follow.transform.rotation;
     }
 
     public override void OnConnectedToMaster()
