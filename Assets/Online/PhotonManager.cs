@@ -56,8 +56,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
 
     private void Update()
     {
-        serverPlayer.transform.Find("head").transform.position = follow.transform.position;
-        serverPlayer.transform.Find("head").transform.rotation = follow.transform.rotation;
+        if (serverPlayer != null)
+        {
+            serverPlayer.transform.Find("head").transform.position = follow.transform.position;
+            serverPlayer.transform.Find("head").transform.rotation = follow.transform.rotation;
+        }
     }
 
     public override void OnConnectedToMaster()

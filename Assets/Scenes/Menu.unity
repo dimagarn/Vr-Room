@@ -1917,6 +1917,9 @@ MonoBehaviour:
   content: {fileID: 874358325}
   player_prefab: {fileID: 0}
   playerC: {fileID: 1359448118}
+  sController: {fileID: 0}
+  brush: {fileID: 0}
+  follow: {fileID: 0}
 --- !u!4 &1157781772
 Transform:
   m_ObjectHideFlags: 0
@@ -2295,8 +2298,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15, y: 15, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 145.4391, y: 15, z: 1}
+  m_Center: {x: -0.6668629, y: -5.1066126e-15, z: 4.2555105e-16}
 --- !u!114 &1619143165
 MonoBehaviour:
   m_ObjectHideFlags: 0

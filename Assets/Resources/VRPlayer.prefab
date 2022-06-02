@@ -1762,22 +1762,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plyer: {fileID: 8689398811631235547}
   avatar: {fileID: 5258811167413055973}
---- !u!114 &6041924133823612294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5258811167413055975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &5437959528179207289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,7 +2593,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7267039874361934505}
-  - component: {fileID: 6408996844214403509}
   m_Layer: 0
   m_Name: NoSteamVRFallbackObjects
   m_TagString: Untagged
@@ -2633,22 +2616,6 @@ Transform:
   m_Father: {fileID: 6802256409207529050}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6408996844214403509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8621280661846277476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &8993782722376207351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2917,11 +2884,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 455777a9170a9004d9f2ee9906652846, type: 3}
---- !u!1 &5258811167413055975 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5258601936319722510, guid: 455777a9170a9004d9f2ee9906652846, type: 3}
-  m_PrefabInstance: {fileID: 354581679146473}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5258811167413055972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5258601936319722509, guid: 455777a9170a9004d9f2ee9906652846, type: 3}
@@ -2932,7 +2894,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5258601936319722508, guid: 455777a9170a9004d9f2ee9906652846, type: 3}
   m_PrefabInstance: {fileID: 354581679146473}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5258811167413055975}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96a1c0a6d71453e429974b808790d05a, type: 3}
