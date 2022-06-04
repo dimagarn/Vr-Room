@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using MeetingRoomVR.Character;
 using UnityEngine;
@@ -27,16 +28,25 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject follow;
     private SerializationController serial;
     private GameObject serverPlayer;
+    private Player plyer;
+    private AnimatedAvatar avatar;
+    private GameObject leftHand;
+    private GameObject rightHand;
 
     private void Awake()
     {
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
-            //player_prefab.transform.position = player.transform.position;
             serverPlayer = PhotonNetwork.Instantiate(player_prefab.name, Vector3.zero, Quaternion.identity);
             if (SteamVR.instance != null)
-                serverPlayer.transform.Find("Avatar").GetComponent<AnimatedAvatar>().HideHands = true;
-            serverPlayer.GetComponent<VRbinder>().plyer = playerC.GetComponent<Player>();
+            {
+                avatar = serverPlayer.transform.Find("Avatar").GetComponent<AnimatedAvatar>();
+                avatar.HideHands = true;
+                plyer = playerC.GetComponent<Player>();
+                StartCoroutine(GetHandsPosition());
+                leftHand = serverPlayer.transform.Find("leftHand").gameObject;
+                rightHand = serverPlayer.transform.Find("rightHand").gameObject;
+            }
             serial = sController.GetComponent<SerializationController>();
             serial.CreateSerializer(PhotonNetwork.CurrentRoom.Name);
             serial.Deserialize(brush);
@@ -47,11 +57,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.ConnectToRegion(region);
-
-        if (SceneManager.GetActiveScene().name == "SampleScene")
-        {
-           //PhotonNetwork.Instantiate(player_prefab.name, new Vector3(2.512f, -0.292f, 6.963f), Quaternion.identity);
-        }
     }
 
     private void Update()
@@ -60,6 +65,30 @@ public class PhotonManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             serverPlayer.transform.Find("head").transform.position = follow.transform.position;
             serverPlayer.transform.Find("head").transform.rotation = follow.transform.rotation;
+            
+            if (plyer && plyer.leftHand && plyer.rightHand)
+            {
+                leftHand.transform.position = plyer.leftHand.skeleton.wrist.position;
+                leftHand.transform.rotation = plyer.leftHand.skeleton.wrist.rotation;
+                rightHand.transform.position = plyer.rightHand.skeleton.wrist.position;
+                rightHand.transform.rotation = plyer.rightHand.skeleton.wrist.rotation;
+            }
+        }
+    }
+    
+    private IEnumerator GetHandsPosition()
+    {
+        while (true)
+        {
+            if (leftHand == null ||
+                rightHand == null)
+                yield return new WaitForSeconds(1f);
+            else
+            {
+                avatar.LeftHand.StartFollowing(leftHand.transform);
+                avatar.RightHand.StartFollowing(rightHand.transform);
+                yield break;
+            }
         }
     }
 
